@@ -1,2 +1,12 @@
 # dependencies
 /node_modules
+
+# env
+.env.local
+.env
+.env.development
+.env.staging
+.env.production
+
+# build
+/build

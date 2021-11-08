@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb",
+  "plugins": ["jest"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "arrow-body-style": [2, "always"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-unused-expressions": "off",
+    "max-len": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/destructuring-assignment": "off",
+    "react/prop-types": "off",
+    "linebreak-style": "off",
+    "react/prefer-stateless-function": "off",
+    "import/prefer-default-export": "off",
+    "global-require": "off"
+  }
+}

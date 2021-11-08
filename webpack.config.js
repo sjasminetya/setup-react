@@ -1,37 +1,44 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   context: __dirname,
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
-    publicPath: "/"
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+    publicPath: '/',
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true,
+  },
+  resolve: {
+    alias: {
+      Images: path.resolve(__dirname, 'src/assets'),
+    },
   },
   module: {
     rules: [
-      { 
-        test: /\.js?$/, 
-        use: "babel-loader", 
-        exclude: /node_modules/ 
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
       },
-      { 
-        test: /\.css?$/, 
-        use: ["style-loader", "css-loader"],
+      {
+        test: /\.s[ac]ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
-      { 
-        test: /\.(png|j?g|svg|gif)?$/, 
-        use: "file-loader",
-      }
-    ]
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public/index.html'),
-      filename: 'index.html'
-    })
-  ]
-}
+      template: path.resolve(__dirname, 'src/index.html'),
+      filename: 'index.html',
+    }),
+  ],
+};
