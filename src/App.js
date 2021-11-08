@@ -10,6 +10,11 @@ class App extends React.Component {
         <img src={IMAGES.examplePhoto} alt="" style={{ width: '100px', height: '100px' }} />
         <h1>Contoh svg</h1>
         <img src={ICONS.komputer} alt="" style={{ width: '100px', height: '100px' }} />
+        <p>
+          ENV:
+          {' '}
+          {process.env.NODE_ENV}
+        </p>
       </div>
     );
   }
